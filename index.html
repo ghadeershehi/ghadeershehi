@@ -74,7 +74,19 @@
     .viewer .meta{margin-top:12px;color:var(--muted);text-align:center}
     .close-btn{position:fixed;top:18px;right:18px;background:transparent;border:2px solid rgba(255,255,255,0.08);color:#fff;padding:6px 10px;border-radius:6px;cursor:pointer}
 
-    /* Footer */
+    /* Footer and new contact section */
+    .contact-section{
+      text-align:center;
+      padding:40px 20px;
+    }
+    .contact-section h2{
+      font-size:2rem;
+      font-weight:400;
+      color:#fff;
+    }
+    .contact-section p{
+      color:var(--muted);
+    }
     footer{
       margin-top:28px;
       padding:12px;
@@ -102,7 +114,7 @@
     <nav class="topbar" aria-label="Top navigation">
       <a href="#home">Home</a>
       <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
+      <a href="#contact">Contact</a> <!-- This now links to the new contact section -->
     </nav>
   </header>
 
@@ -157,9 +169,14 @@
       </article>
     </section>
 
+    <!-- NEW: Add a contact section with the correct id -->
+    <section id="contact" class="contact-section">
+        <h2>Contact</h2>
+        <p>For inquiries, please send an email to:</p>
+        <p><a href="mailto:ghadeer.alshuhi30@gmail.com">ghadeer.alshuhi30@gmail.com</a></p>
+    </section>
     
     <footer>
-      For inquiries: <a href="mailto:ghadeer.alshuhi30@gmail.com">ghadeer.alshuhi30@gmail.com</a><br>
       © 2025 Ghadeer Shehi. All rights reserved.
     </footer>
 
@@ -179,46 +196,6 @@
     const viewer = document.getElementById('viewer');
     const viewerImg = document.getElementById('viewerImg');
     const viewerMeta = document.getElementById('viewerMeta');
-    const viewerClose = document.getElementById('viewerClose');
-    let current = -1;
-
-    function openViewer(index){
-      const el = pieces[index];
-      const src = el.dataset.src || el.querySelector('img').src;
-      const title = el.dataset.title || '';
-      const desc = el.dataset.desc || '';
-      viewerImg.src = src;
-      viewerImg.alt = title + ' — ' + desc;
-      viewerMeta.textContent = title + (desc? ' — ' + desc : '');
-      viewer.classList.add('open');
-      viewer.setAttribute('aria-hidden','false');
-      current = index;
-      viewerClose.focus();
-    }
-
-    function closeViewer(){
-      viewer.classList.remove('open');
-      viewer.setAttribute('aria-hidden','true');
-      viewerImg.src = '';
-      current = -1;
-    }
-
-    pieces.forEach((p,i)=>{
-      p.addEventListener('click',()=>openViewer(i));
-      p.addEventListener('keydown', e => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            openViewer(i);
-          }
-      });
-    });
-
-    viewerClose.addEventListener('click', closeViewer);
-    window.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && viewer.classList.contains('open')) {
-        closeViewer();
-      }
-    });
-
   </script>
 </body>
 </html>
