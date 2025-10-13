@@ -196,6 +196,45 @@
     const viewer = document.getElementById('viewer');
     const viewerImg = document.getElementById('viewerImg');
     const viewerMeta = document.getElementById('viewerMeta');
+    const viewerClose = document.getElementById('viewerClose');
+
+    // Add event listeners to each gallery piece
+    pieces.forEach(piece => {
+      piece.addEventListener('click', () => {
+        // Get the data attributes from the clicked piece
+        const src = piece.getAttribute('data-src');
+        const title = piece.getAttribute('data-title');
+        const desc = piece.getAttribute('data-desc');
+
+        // Set the content of the viewer
+        viewerImg.src = src;
+        viewerImg.alt = title; // Use title for alt text
+        viewerMeta.innerHTML = `<strong>${title}</strong><br>${desc}`;
+
+        // Open the viewer modal
+        viewer.classList.add('open');
+      });
+    });
+
+    // Close the viewer when the close button is clicked
+    viewerClose.addEventListener('click', () => {
+      viewer.classList.remove('open');
+    });
+
+    // Optional: Close the viewer when clicking outside the image
+    viewer.addEventListener('click', (e) => {
+        // Only close if the click is on the dark backdrop, not the image itself
+        if (e.target === viewer) {
+            viewer.classList.remove('open');
+        }
+    });
+
+    // Optional: Close the viewer with the Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && viewer.classList.contains('open')) {
+        viewer.classList.remove('open');
+      }
+    });
   </script>
 </body>
 </html>
