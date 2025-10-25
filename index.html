@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Ghadeer Shehi — Art</title>
 
-  <!-- Add this link to include Clash Display from Fontshare, including regular, light, and bold weights -->
+  <!-- Clash Display Font -->
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,700&display=swap" rel="stylesheet">
 
   <style>
@@ -16,10 +16,8 @@
     html,body{
       height:100%;
       margin:0;
-      /* Set the font-family for the entire body */
-      font-family:'Clash Display', sans-serif;
-      /* Set the default font weight to skinny (extralight) */
-      font-weight: 200;
+      font-family:'Clash Display',sans-serif;
+      font-weight:200;
       background:linear-gradient(180deg,var(--bg1),var(--bg2));
       color:#fff;
       -webkit-font-smoothing:antialiased
@@ -28,85 +26,40 @@
 
     .wrap{max-width:1100px;margin:0 auto;padding:28px}
 
-    /* Intro hero */
     .hero{min-height:70vh;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:24px}
-    .name{
-      font-size:clamp(28px,8vw,72px);
-      letter-spacing:0.02em;
-      /* Set the font weight to regular (400) for the name */
-      font-weight:400;
-      color:#fff;
-      margin:0
-    }
+    .name{font-size:clamp(28px,8vw,72px);letter-spacing:0.02em;font-weight:400;color:#fff;margin:0}
     .subtle{color:var(--muted);margin-top:8px;font-size:1rem;opacity:0.85}
     .scroll-hint{margin-top:22px;opacity:0.9}
 
-    /* Gallery: stacked large images */
     .gallery{display:flex;flex-direction:column;gap:28px;padding:20px 6vw}
     .piece{display:block;max-width:980px;margin:0 auto;border-radius:12px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,0.6);background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);cursor:pointer;transform:translateY(0);transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .25s}
     .piece:hover{transform:translateY(-6px);box-shadow:0 30px 70px rgba(0,0,0,0.7)}
     .piece img{display:block;width:100%;height:auto;max-height:80vh;object-fit:contain}
-    .caption{
-      padding:12px 18px;
-      background:linear-gradient(180deg,rgba(0,0,0,0.25),rgba(0,0,0,0.4));
-      color:#fff;
-      font-size:1rem;
-      /* Keep the font weight as extralight (200) for captions */
-      font-weight: 200;
-    }
+    .caption{padding:12px 18px;background:linear-gradient(180deg,rgba(0,0,0,0.25),rgba(0,0,0,0.4));color:#fff;font-size:1rem;font-weight:200}
 
-    /* Minimal header nav */
     header{position:fixed;left:0;right:0;top:12px;display:flex;justify-content:center;z-index:50}
     .topbar{background:rgba(0,0,0,0.25);backdrop-filter:blur(6px);padding:8px 14px;border-radius:999px;border:1px solid rgba(255,102,204,0.08)}
-    .topbar a{
-      font-size:0.95rem;
-      margin:0 10px;
-      color:var(--muted);
-      /* Use a readable regular (400) font weight for links */
-      font-weight: 400;
-    }
+    .topbar a{font-size:0.95rem;margin:0 10px;color:var(--muted);font-weight:400}
 
-    /* Modal viewer */
-    .viewer{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:20px;background:linear-gradient(180deg,rgba(0,0,0,0.85),rgba(0,0,0,0.95));z-index:200}
+    /* Viewer popup */
+    .viewer{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,0.95);z-index:200}
     .viewer.open{display:flex}
-    .viewer-inner{max-width:1100px;width:100%;max-height:95vh;display:flex;flex-direction:column;align-items:center}
-    .viewer img{max-width:100%;max-height:82vh;border-radius:8px;object-fit:contain}
-    .viewer .meta{margin-top:12px;color:var(--muted);text-align:center}
+    .viewer-inner{max-width:1100px;width:100%;max-height:95vh;display:flex;flex-direction:column;align-items:center;text-align:center}
+    .viewer img{max-width:100%;max-height:80vh;border-radius:8px;object-fit:contain;margin-bottom:12px}
+    .viewer h2{font-weight:400;font-size:1.5rem;margin:4px 0;color:#fff;}
+    .viewer p{font-weight:200;color:var(--muted);font-size:1rem;max-width:800px;margin:0 auto 20px;}
     .close-btn{position:fixed;top:18px;right:18px;background:transparent;border:2px solid rgba(255,255,255,0.08);color:#fff;padding:6px 10px;border-radius:6px;cursor:pointer}
 
-    /* Footer and new contact section */
-    .contact-section{
-      text-align:center;
-      padding:40px 20px;
-    }
-    .contact-section h2{
-      font-size:2rem;
-      font-weight:400;
-      color:#fff;
-    }
-    .contact-section p{
-      color:var(--muted);
-    }
-    footer{
-      margin-top:28px;
-      padding:12px;
-      text-align:center;
-      color:var(--muted);
-      font-size:0.95rem;
-      /* Regular weight for footer text */
-      font-weight: 400;
-    }
+    .contact-section{text-align:center;padding:40px 20px;}
+    .contact-section h2{font-size:2rem;font-weight:400;color:#fff;}
+    .contact-section p{color:var(--muted);}
+    footer{margin-top:28px;padding:12px;text-align:center;color:var(--muted);font-size:0.95rem;font-weight:400;}
 
-    /* responsive tweaks */
     @media (max-width:900px){
       .wrap{padding:18px}
       .gallery{gap:16px;padding:12px}
       .caption{font-size:0.95rem}
     }
-
-    /* accessibility */
-    .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
-
   </style>
 </head>
 <body>
@@ -114,127 +67,114 @@
     <nav class="topbar" aria-label="Top navigation">
       <a href="#home">Home</a>
       <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a> <!-- This now links to the new contact section -->
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <main class="wrap">
     <section class="hero" id="home" role="banner">
       <h1 class="name">Ghadeer Shehi</h1>
-      <p class="subtle visually-hidden">Contemporary artist — oil & acrylic</p>
+      <p class="subtle visually-hidden">Software Engineer & Artist</p>
       <div class="scroll-hint" aria-hidden="true">⬇︎ Scroll to view gallery</div>
     </section>
 
     <section id="gallery" class="gallery" aria-label="Art gallery">
-      <!-- Replace these with your files: art01.jpg ... art10.jpg -->
-      <article class="piece" tabindex="0" data-src="art01.jpg" data-title="Art 01" data-desc="Oil on canvas">
-        <img loading="lazy" src="art01.jpg" alt="Art 01 - Oil on canvas">
+      <article class="piece" data-src="art01.jpg" data-title="Art 01" data-desc="Oil on canvas exploring emotional contrasts through texture and color.">
+        <img src="art01.jpg" alt="Art 01 - Oil on canvas">
         <div class="caption">Art 01 — Oil on canvas</div>
       </article>
-      <article class="piece" tabindex="0" data-src="art02.jpg" data-title="Art 02" data-desc="Acrylic experimental">
-        <img loading="lazy" src="art02.jpg" alt="Art 02 - Acrylic experimental">
+
+      <article class="piece" data-src="art02.jpg" data-title="Art 02" data-desc="An abstract acrylic piece capturing fluid movement and chaos.">
+        <img src="art02.jpg" alt="Art 02 - Acrylic experimental">
         <div class="caption">Art 02 — Acrylic experimental</div>
       </article>
-      <article class="piece" tabindex="0" data-src="art03.jpg" data-title="Art 03" data-desc="Sketch study">
-        <img loading="lazy" src="art03.jpg" alt="Art 03 - Sketch study">
+
+      <article class="piece" data-src="art03.jpg" data-title="Art 03" data-desc="A minimalist graphite sketch reflecting fragility and balance.">
+        <img src="art03.jpg" alt="Art 03 - Sketch study">
         <div class="caption">Art 03 — Sketch study</div>
       </article>
-      <article class="piece" tabindex="0" data-src="art04.jpg" data-title="Art 04" data-desc="Mixed media weapon study">
-        <img loading="lazy" src="art04.jpg" alt="Art 04 - Mixed media weapon study">
+
+      <article class="piece" data-src="art04.jpg" data-title="Art 04" data-desc="Mixed media study inspired by weapon craftsmanship and ancient symbolism.">
+        <img src="art04.jpg" alt="Art 04 - Mixed media weapon study">
         <div class="caption">Art 04 — Mixed media weapon study</div>
       </article>
-      <article class="piece" tabindex="0" data-src="art05.jpg" data-title="Art 05" data-desc="Minimalist poster">
-        <img loading="lazy" src="art05.jpg" alt="Art 05 - Minimalist poster">
+
+      <article class="piece" data-src="art05.jpg" data-title="Art 05" data-desc="Minimalist poster inspired by rebellion and poetic design.">
+        <img src="art05.jpg" alt="Art 05 - Minimalist poster">
         <div class="caption">Art 05 — Minimalist poster</div>
       </article>
-      <article class="piece" tabindex="0" data-src="art06.jpg" data-title="Art 06" data-desc="Fan art">
-        <img loading="lazy" src="art06.jpg" alt="Art 06 - Fan art">
+
+      <article class="piece" data-src="art06.jpg" data-title="Art 06" data-desc="Fan art reflecting deep emotion through expressive acrylic strokes.">
+        <img src="art06.jpg" alt="Art 06 - Fan art">
         <div class="caption">Art 06 — Fan art</div>
       </article>
-      <article class="piece" tabindex="0" data-src="art07.jpg" data-title="Art 07" data-desc="Portrait oil">
-        <img loading="lazy" src="art07.jpg" alt="Art 07 - Portrait oil">
+
+      <article class="piece" data-src="art07.jpg" data-title="Art 07" data-desc="Portrait in oil capturing the intimacy of stillness.">
+        <img src="art07.jpg" alt="Art 07 - Portrait oil">
         <div class="caption">Art 07 — Portrait oil</div>
       </article>
-      <article class="piece" tabindex="0" data-src="art08.jpg" data-title="Art 08" data-desc="Study in black and white">
-        <img loading="lazy" src="art08.jpg" alt="Art 08 - Study in black and white">
+
+      <article class="piece" data-src="art08.jpg" data-title="Art 08" data-desc="Study in black and white focusing on emotional duality.">
+        <img src="art08.jpg" alt="Art 08 - Study in black and white">
         <div class="caption">Art 08 — Study in black and white</div>
       </article>
-      <article class="piece" tabindex="0" data-src="art09.jpg" data-title="Art 09" data-desc="Experimental texture">
-        <img loading="lazy" src="art09.jpg" alt="Art 09 - Experimental texture">
+
+      <article class="piece" data-src="art09.jpg" data-title="Art 09" data-desc="Experimental texture work exploring raw material layers.">
+        <img src="art09.jpg" alt="Art 09 - Experimental texture">
         <div class="caption">Art 09 — Experimental texture</div>
       </article>
-      <article class="piece" tabindex="0" data-src="art10.jpg" data-title="Art 10" data-desc="Final piece — gallery ready">
-        <img loading="lazy" src="art10.jpg" alt="Art 10 - Final piece">
+
+      <article class="piece" data-src="art10.jpg" data-title="Art 10" data-desc="Final gallery-ready piece blending all previous techniques.">
+        <img src="art10.jpg" alt="Art 10 - Final piece">
         <div class="caption">Art 10 — Final piece — gallery ready</div>
       </article>
     </section>
 
-    <!-- NEW: Add a contact section with the correct id -->
     <section id="contact" class="contact-section">
-        <h2>Contact</h2>
-        <p>For inquiries, please send an email to:</p>
-        <p><a href="mailto:ghadeer.alshuhi30@gmail.com">ghadeer.alshuhi30@gmail.com</a></p>
+      <h2>Contact</h2>
+      <p>For inquiries, please send an email to:</p>
+      <p><a href="mailto:ghadeer.alshuhi30@gmail.com">ghadeer.alshuhi30@gmail.com</a></p>
     </section>
-    
-    <footer>
-      © 2025 Ghadeer Shehi. All rights reserved.
-    </footer>
 
+    <footer>© 2025 Ghadeer Shehi. All rights reserved.</footer>
   </main>
 
-  <!-- viewer -->
-  <div class="viewer" id="viewer" aria-hidden="true">
-    <button class="close-btn" id="viewerClose" aria-label="Close viewer">Close</button>
-    <div class="viewer-inner" role="dialog" aria-modal="true">
+  <!-- Viewer -->
+  <div class="viewer" id="viewer">
+    <button class="close-btn" id="viewerClose">Close</button>
+    <div class="viewer-inner">
       <img id="viewerImg" src="" alt="">
-      <div class="meta" id="viewerMeta"></div>
+      <h2 id="viewerTitle"></h2>
+      <p id="viewerDesc"></p>
     </div>
   </div>
 
   <script>
-    const pieces = Array.from(document.querySelectorAll('.piece'));
+    const pieces = document.querySelectorAll('.piece');
     const viewer = document.getElementById('viewer');
     const viewerImg = document.getElementById('viewerImg');
-    const viewerMeta = document.getElementById('viewerMeta');
+    const viewerTitle = document.getElementById('viewerTitle');
+    const viewerDesc = document.getElementById('viewerDesc');
     const viewerClose = document.getElementById('viewerClose');
 
-    // Add event listeners to each gallery piece
     pieces.forEach(piece => {
       piece.addEventListener('click', () => {
-        // Get the data attributes from the clicked piece
-        const src = piece.getAttribute('data-src');
-        const title = piece.getAttribute('data-title');
-        const desc = piece.getAttribute('data-desc');
+        const src = piece.dataset.src;
+        const title = piece.dataset.title;
+        const desc = piece.dataset.desc;
 
-        // Set the content of the viewer
         viewerImg.src = src;
-        viewerImg.alt = title; // Use title for alt text
-        viewerMeta.innerHTML = `<strong>${title}</strong><br>${desc}`;
+        viewerImg.alt = title;
+        viewerTitle.textContent = title;
+        viewerDesc.textContent = desc;
 
-        // Open the viewer modal
         viewer.classList.add('open');
       });
     });
 
-    // Close the viewer when the close button is clicked
-    viewerClose.addEventListener('click', () => {
-      viewer.classList.remove('open');
-    });
-
-    // Optional: Close the viewer when clicking outside the image
-    viewer.addEventListener('click', (e) => {
-        // Only close if the click is on the dark backdrop, not the image itself
-        if (e.target === viewer) {
-            viewer.classList.remove('open');
-        }
-    });
-
-    // Optional: Close the viewer with the Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && viewer.classList.contains('open')) {
-        viewer.classList.remove('open');
-      }
-    });
+    viewerClose.addEventListener('click', () => viewer.classList.remove('open'));
+    viewer.addEventListener('click', e => { if (e.target === viewer) viewer.classList.remove('open'); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') viewer.classList.remove('open'); });
   </script>
 </body>
 </html>
