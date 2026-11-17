@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ghadeer Alshehi — Canvases</title>
+
+  <!-- Clash Display Font -->
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg1: #0b0010;
+      --bg2: #2a002a;
+      --accent: #ff66cc;
+      --muted: #bba3b9;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Clash Display', sans-serif;
+      font-weight: 200;
+      background: linear-gradient(180deg, var(--bg1), var(--bg2));
+      color: #fff;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 28px; }
+
+    .hero {
+      min-height: 40vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 24px;
+      padding-top: 80px;
+    }
+    .name {
+      font-size: clamp(28px, 6vw, 56px);
+      letter-spacing: 0.02em;
+      font-weight: 400;
+      color: #fff;
+      margin: 0;
+    }
+    .subtle { color: var(--muted); margin-top: 8px; font-size: 1rem; opacity: 0.85; }
+
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      padding: 20px 6vw;
+    }
+    .piece {
+      display: block;
+      max-width: 980px;
+      margin: 0 auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      cursor: pointer;
+      transform: translateY(0);
+      transition: transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .25s;
+    }
+    .piece:hover { transform: translateY(-6px); box-shadow: 0 30px 70px rgba(0,0,0,0.7); }
+    .piece img { display: block; width: 100%; height: auto; max-height: 80vh; object-fit: contain; }
+    .caption { padding: 12px 18px; background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.4)); color: #fff; font-size: 1rem; font-weight: 200; }
+
+    header {
+      position: fixed;
+      left: 0; right: 0; top: 12px;
+      display: flex; justify-content: center;
+      z-index: 50;
+    }
+    .topbar {
+      background: rgba(0,0,0,0.25);
+      backdrop-filter: blur(6px);
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,102,204,0.08);
+      white-space: nowrap;
+    }
+    .topbar a {
+      font-size: 0.95rem;
+      margin: 0 10px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+    .topbar a.active { color: var(--accent); }
+
+    /* Viewer popup */
+    .viewer {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.95);
+      z-index: 200;
+    }
+    .viewer.open { display: flex; }
+    .viewer-inner {
+      position: relative;
+      max-width: 1100px;
+      width: 100%;
+      max-height: 95vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .viewer img {
+      max-width: 100%;
+      max-height: 80vh;
+      border-radius: 8px;
+      object-fit: contain;
+      margin-bottom: 12px;
+    }
+    .viewer h2 { font-weight: 400; font-size: 1.5rem; margin: 4px 0; color: #fff; }
+    .viewer p { font-weight: 200; color: var(--muted); font-size: 1rem; max-width: 800px; margin: 0 auto 20px; }
+
+    /* Clean “×” button */
+    .close-btn {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 36px;
+      font-family: 'Clash Display', sans-serif;
+      font-weight: 400;
+      line-height: 1;
+      cursor: pointer;
+      padding: 0;
+      transition: opacity 0.2s ease;
+    }
+    .close-btn:hover { opacity: 0.6; }
+
+    footer { margin-top: 40px; padding: 12px; text-align: center; color: var(--muted); font-size: 0.95rem; font-weight: 400; }
+
+    @media (max-width:900px) {
+      .wrap { padding: 18px; }
+      .gallery { gap: 16px; padding: 12px; }
+      .caption { font-size: 0.95rem; }
+      .close-btn { font-size: 30px; top: -6px; right: -6px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="topbar" aria-label="Top navigation">
+      <a href="index.html">Home</a>
+      <a href="sketches.html">Sketches</a>
+      <a href="canvases.html" class="active">Canvases</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" role="banner">
+      <h1 class="name">Canvases</h1>
+      <p class="subtle"> Coming soon</p>
+    </section>
+
+   
+    </section>
+
+    <footer>© 2026 Ghadeer Alshehi. All rights reserved.</footer>
+  </main>
+
+  <!-- Viewer -->
+  <div class="viewer" id="viewer">
+    <div class="viewer-inner">
+      <button class="close-btn" id="viewerClose" aria-label="Close viewer">×</button>
+      <img id="viewerImg" src="" alt="">
+      <h2 id="viewerTitle"></h2>
+      <p id="viewerDesc"></p>
+    </div>
+  </div>
+
+  <script>
+    const pieces = document.querySelectorAll('.piece');
+    const viewer = document.getElementById('viewer');
+    const viewerImg = document.getElementById('viewerImg');
+    const viewerTitle = document.getElementById('viewerTitle');
+    const viewerDesc = document.getElementById('viewerDesc');
+    const viewerClose = document.getElementById('viewerClose');
+
+    pieces.forEach(piece => {
+      piece.addEventListener('click', () => {
+        const src = piece.dataset.src;
+        const title = piece.dataset.title;
+        const desc = piece.dataset.desc;
+
+        viewerImg.src = src;
+        viewerImg.alt = title;
+        viewerTitle.textContent = title;
+        viewerDesc.textContent = desc;
+
+        viewer.classList.add('open');
+      });
+    });
+
+    viewerClose.addEventListener('click', () => viewer.classList.remove('open'));
+    viewer.addEventListener('click', e => { if (e.target === viewer) viewer.classList.remove('open'); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') viewer.classList.remove('open'); });
+  </script>
+</body>
+</html>
