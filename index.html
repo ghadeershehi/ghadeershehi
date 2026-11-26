@@ -10,10 +10,10 @@
 
   <style>
     :root {
-      --bg1: #000612;
-      --bg2: #001a38;
-      --accent: #38bdf8;
-      --muted: #94b8d8;
+      --bg1: #140009;
+      --bg2: #3d001e;
+      --accent: #ff1e8a;
+      --muted: #d69bb5;
     }
     * { box-sizing: border-box; }
     html, body {
@@ -59,7 +59,7 @@
       backdrop-filter: blur(6px);
       padding: 10px 20px;
       border-radius: 999px;
-      border: 1px solid rgba(56,189,248,0.12);
+      border: 1px solid rgba(255,30,138,0.18);
       color: var(--muted);
       font-size: 1rem;
       font-weight: 400;
@@ -67,7 +67,7 @@
     }
     .hero-btn:hover {
       color: var(--accent);
-      border-color: rgba(56,189,248,0.35);
+      border-color: rgba(255,30,138,0.45);
       transform: translateY(-2px);
     }
 
@@ -104,7 +104,7 @@
       backdrop-filter: blur(6px);
       padding: 8px 14px;
       border-radius: 999px;
-      border: 1px solid rgba(56,189,248,0.12);
+      border: 1px solid rgba(255,30,138,0.18);
     }
     .topbar a {
       font-size: 0.95rem;
@@ -186,8 +186,9 @@
   <header>
     <nav class="topbar" aria-label="Top navigation">
       <a href="#home">Home</a>
-      <a href="sketches.html">Sketch</a>
-      <a href="canvases.html">Canvas</a>
+      <a href="#gallery">Gallery</a>
+      <a href="sketches.html">Sketches</a>
+      <a href="canvases.html">Canvases</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -196,12 +197,11 @@
     <section class="hero" id="home" role="banner">
       <h1 class="name">Ghadeer Alshehi</h1>
       <p class="subtle visually-hidden"> Art </p>
-     <div class="scroll-hint" aria-hidden="true"> "One must be a sea, to recieve a polluted stream and still remain pure." - Friedrich Nietzsche, Thus Spoke Zarathustra 1883. </div>
+      <div class="scroll-hint" aria-hidden="true">Welcome to my art gallery</div>
       
       <div class="hero-buttons">
-        <a href="sketches.html" class="hero-btn">Sketch </a>
-        <a href="canvases.html" class="hero-btn">Canvas</a>
-       
+        <a href="sketches.html" class="hero-btn">Sketches</a>
+        <a href="canvases.html" class="hero-btn">Canvases</a>
       </div>
     </section>
 
